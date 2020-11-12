@@ -62,7 +62,7 @@ bot.on('message', (message) => {
         message.reply('Hola pibe, te estas portando bien?');
     }
     if(parts[0] === '!rango') {
-        message.reply('Tu rango es: ', userStats.level);
+        message.reply(`Tu rango es: ${userStats.level}`);
     }
 });
 
