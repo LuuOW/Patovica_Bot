@@ -42,11 +42,8 @@ bot.on('message', (message) => {
     const xpToNextLvl = 5 * Math.pow(userStats.level, 2) + 50 * userStats.level + 100;
     if (userStats.xp >= xpToNextLvl) {
         userStats.level++;
-        if (userStats.level >= 15) {
-            
-        } 
         userStats = userStats.xp - xpToNextLvl;
-        message.channel.send(message.author.username + ' ha alcanzado' + userStats.level);
+        message.channel.send(message.author.username + ' ha alcanzado el nivel: ' + userStats.level);
     }
 
     jsonfile.writeFileSync('stats.json', stats);
@@ -60,9 +57,6 @@ bot.on('message', (message) => {
 
     if(parts[0] === '!hello') {
         message.reply('Hola pibe, te estas portando bien?');
-    }
-    if(parts[0] === '!rango') {
-        message.reply('Tu nivel es ' + userStats.level + ' te faltan ' + userStats.xpToNextLvl + ' para el suguiente nivel.');
     }
 });
 
